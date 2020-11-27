@@ -2,16 +2,16 @@ GamemodeChange = GamemodeChange or {}
 GamemodeChange.Config = GamemodeChange.Config or {}
 
 --Client ID mTxServ
-GamemodeChange.Config.client_id = "804_1ux3ppff4ly8g4gsgk8kckk00so40g4ckk0k4wsogsssg4sk8s"
+GamemodeChange.Config.client_id = ""
 
 --Client Secret mTxServ
-GamemodeChange.Config.client_secret = "4fjuso5ppx4wksgg408cc8ocwk08s84s08oo08gkgokkc4kkg8"
+GamemodeChange.Config.client_secret = ""
 
 --API Key mTxServ
-GamemodeChange.Config.api_key = "GhYlGqsWLYJsJ5jpoysdkbxsBr3GktRTUS0IZ1PtYyUtDkI8ua"
+GamemodeChange.Config.api_key = ""
 
 --ServerID présent dans l'url mTxServ
-GamemodeChange.Config.ServerID = "148713"
+GamemodeChange.Config.ServerID = ""
 
 --Message sur le menu d'attente
 GamemodeChange.Config.textmenu = "Le serveur change de gamemode. Veuillez patientez."
