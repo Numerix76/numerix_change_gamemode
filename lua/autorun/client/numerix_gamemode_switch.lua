@@ -18,24 +18,27 @@ local function CheckOnline()
 end
 
 local function open_changegamemode_screen()
-    if ValidPanel(pnl) then pnl:Remove() end
+	if ValidPanel(pnl) then pnl:Remove() end
     
-    local pnl = vgui.Create("DFrame")
-    pnl:SetTitle("")
+	local pnl = vgui.Create("DFrame")
+	pnl:SetTitle("")
+	pnl:ShowCloseButton(false)
+	pnl:SetDraggable(false)
 	pnl:SetSize(ScrW(), ScrH())
 	pnl:SetMouseInputEnabled(true)
-	pnl:SetAlpha(0) pnl:AlphaTo(255, .5)
-    pnl:MakePopup()
+	pnl:SetAlpha(0) 
+	pnl:AlphaTo(255, .5)
+	pnl:MakePopup()
 	function pnl:Close()
-        pnl:SetKeyboardInputEnabled(false) 
-        pnl:SetMouseInputEnabled(false)
-		pnl:AlphaTo(0, .5, 0, function() pnl:Remove() end)			
-    end
-    function pnl:Think()
-        CheckOnline()
-    end
-    pnl.Paint = function(self, w, h)
-        draw.RoundedBox( 0, 0, 0, w, h, colorbg_frame )
+		pnl:SetKeyboardInputEnabled(false) 
+		pnl:SetMouseInputEnabled(false)
+		pnl:AlphaTo(0, .5, 0, function() pnl:Remove() end)
+	end
+	function pnl:Think()
+		CheckOnline()
+	end
+	pnl.Paint = function(self, w, h)
+		draw.RoundedBox( 0, 0, 0, w, h, colorbg_frame )
 		surface.SetDrawColor( colorline_frame )
         surface.DrawOutlinedRect( 0, 0, w , h )
     end
