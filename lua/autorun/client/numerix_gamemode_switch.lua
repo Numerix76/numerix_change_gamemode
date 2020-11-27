@@ -11,7 +11,11 @@ local function CheckOnline()
         end
         if good_responses < 10 then
             good_responses = good_responses + 1
+            print(good_responses)
         else
+            if timer.Exists("numerix_changegamemode_check") then
+                timer.Destroy("numerix_changegamemode_check")
+            end
             LocalPlayer():ConCommand("connect " .. game.GetIPAddress())
         end
     end)
@@ -33,10 +37,7 @@ local function open_changegamemode_screen()
 		pnl:SetKeyboardInputEnabled(false) 
 		pnl:SetMouseInputEnabled(false)
 		pnl:AlphaTo(0, .5, 0, function() pnl:Remove() end)
-	end
-	function pnl:Think()
-		CheckOnline()
-	end
+    end
 	pnl.Paint = function(self, w, h)
 		draw.RoundedBox( 0, 0, 0, w, h, colorbg_frame )
 		surface.SetDrawColor( colorline_frame )
@@ -50,6 +51,12 @@ local function open_changegamemode_screen()
     center_lbl:SetFont("DermaLarge")
     center_lbl:Center()
     center_lbl:SetTextColor(color_white) 
+
+    timer.Simple(5, function()
+        function pnl:Think()
+            CheckOnline()
+        end
+    end)
 end
 
 net.Receive("Numerix:OpenRestartMenu", function()
