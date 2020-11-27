@@ -51,8 +51,6 @@ local function open_changegamemode_screen()
     center_lbl:Center()
     center_lbl:SetTextColor(color_white) 
 end
-concommand.Add("numerix_test2", function() open_changegamemode_screen() end)
-
 
 net.Receive("Numerix:OpenRestartMenu", function()
 	open_changegamemode_screen()
