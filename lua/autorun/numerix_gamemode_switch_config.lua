@@ -29,4 +29,6 @@ GamemodeChange.Config.TableOfHook = {
     ["nzombies"] = "OnRoundEnd",
     ["guesswho"] = "GWOnRoundEnd",
     ["tfil"] = "Lava.PostRound",
+    ["minigames"] = "OnRoundFinish",
+    ["prophunters"] = "OnEndRound",
 }
