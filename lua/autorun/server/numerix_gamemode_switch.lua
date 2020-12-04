@@ -162,3 +162,13 @@ if engine.ActiveGamemode() == "psw2" then
         oldNewRound()
     end
 end
+
+if engine.ActiveGamemode() == "minigames" then
+    local oldNewRound = SetRound
+    function SetRound(round, ...)
+        if round == ROUND_ENDING then
+            hook.Call("OnRoundFinish")
+        end
+        oldNewRound(round, ...)
+    end
+end
